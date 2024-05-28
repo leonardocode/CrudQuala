@@ -114,26 +114,36 @@ namespace WSCrudAsistQuala.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<int> Editar(Sucursal sucursal)
+        public ActionResult<int> Editar([FromBody] Sucursal sucursal)
         {
-            if (sucursal.Codigo == null || sucursal.Codigo <= 0)
-            {
-                return BadRequest("El codigo de la sucursal es obligatorio");
-            }
-
             if (sucursal.descripcion == null || sucursal.descripcion == "" || string.IsNullOrEmpty(sucursal.descripcion))
             {
                 return BadRequest("La descripcion de la sucursal es obligatorio");
             }
 
-            if (sucursal.direccion == null || sucursal.direccion == "" || string.IsNullOrEmpty(sucursal.direccion))
+            if (sucursal.descripcion.Length >= 250)
+            {
+                return BadRequest("el maximo de caracteres permitido para el campo descripcion es de 250");
+            }
+
+            if (sucursal.direccion == null || sucursal.direccion == "" || string.IsNullOrEmpty(sucursal.direccion) || sucursal.direccion.Length > 250)
             {
                 return BadRequest("La direccion de la sucursal es obligatorio");
             }
 
-            if (sucursal.identificacion == null || sucursal.identificacion == "" || string.IsNullOrEmpty(sucursal.identificacion))
+            if (sucursal.direccion.Length >= 250)
+            {
+                return BadRequest("el maximo de caracteres permitido para el campo direccion es de 250");
+            }
+
+            if (sucursal.identificacion == null || sucursal.identificacion == "" || string.IsNullOrEmpty(sucursal.identificacion) || sucursal.identificacion.Length > 50)
             {
                 return BadRequest("La identificacion de la sucursal es obligatorio");
+            }
+
+            if (sucursal.identificacion.Length >= 250)
+            {
+                return BadRequest("el maximo de caracteres permitido para el campo identificacion es de 50");
             }
 
             if (sucursal.fechaCreacion == null || sucursal.fechaCreacion == "" || string.IsNullOrEmpty(sucursal.fechaCreacion))
@@ -141,7 +151,7 @@ namespace WSCrudAsistQuala.Controllers
                 return BadRequest("La fecha de creacion de la sucursal es obligatorio");
             }
 
-            if(Convert.ToDateTime(sucursal.fechaCreacion) < DateTime.Now)
+            if (Convert.ToDateTime(sucursal.fechaCreacion) < DateTime.Now)
             {
                 return BadRequest("La fecha de creacion no puede ser menor a la fecha actual");
             }
@@ -177,7 +187,7 @@ namespace WSCrudAsistQuala.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<int> guardar(Sucursal sucursal)
+        public ActionResult<int> Guardar([FromBody] Sucursal sucursal)
         {
             DateTime fecha;
 
@@ -186,14 +196,29 @@ namespace WSCrudAsistQuala.Controllers
                 return BadRequest("La descripcion de la sucursal es obligatorio");
             }
 
-            if (sucursal.direccion == null || sucursal.direccion == "" || string.IsNullOrEmpty(sucursal.direccion))
+            if (sucursal.descripcion.Length >= 250)
+            {
+                return BadRequest("el maximo de caracteres permitido para el campo descripcion es de 250");
+            }
+
+            if (sucursal.direccion == null || sucursal.direccion == "" || string.IsNullOrEmpty(sucursal.direccion) || sucursal.direccion.Length > 250)
             {
                 return BadRequest("La direccion de la sucursal es obligatorio");
             }
 
-            if (sucursal.identificacion == null || sucursal.identificacion == "" || string.IsNullOrEmpty(sucursal.identificacion))
+            if (sucursal.direccion.Length >= 250)
+            {
+                return BadRequest("el maximo de caracteres permitido para el campo direccion es de 250");
+            }
+
+            if (sucursal.identificacion == null || sucursal.identificacion == "" || string.IsNullOrEmpty(sucursal.identificacion) || sucursal.identificacion.Length > 50)
             {
                 return BadRequest("La identificacion de la sucursal es obligatorio");
+            }
+
+            if (sucursal.identificacion.Length >= 250)
+            {
+                return BadRequest("el maximo de caracteres permitido para el campo identificacion es de 50");
             }
 
             if (sucursal.fechaCreacion == null || sucursal.fechaCreacion == "" || string.IsNullOrEmpty(sucursal.fechaCreacion))
@@ -210,8 +235,6 @@ namespace WSCrudAsistQuala.Controllers
             {
                 return BadRequest("El codigo de la moneda es obligatorio");
             }
-
-            
 
             try
             {

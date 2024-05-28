@@ -1,6 +1,6 @@
 export interface Sucursales
 {
-  Codigo: number,
+  codigo: number,
   descripcion:string,
   direccion:string,
   identificacion:string

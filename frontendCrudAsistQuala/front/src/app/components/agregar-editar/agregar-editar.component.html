@@ -1,0 +1,66 @@
+<h2 mat-dialog-title>{{ tituloAccion }} Sucursal</h2>
+<mat-dialog-content>
+  <!--enviamos los campos de formSucursal-->
+  <form [formGroup]="formSucursal">
+    <mat-grid-list cols="1" rowHeight="80px">
+      <!-- <mat-grid-tile> -->
+        <!--codigo sucursal-->
+        <!-- <mat-form-field appearance="outline">
+          <mat-label>Codigo Sucursal</mat-label> -->
+          <!--este campo lo relacionamos con el campo del formulario y el campo descripcion-->
+          <!-- <input matInput formControlName="codigo" autocomplete="off">
+        </mat-form-field> -->
+      <!-- </mat-grid-tile> -->
+      <mat-grid-tile>
+          <!--descripcion sucursal-->
+          <mat-form-field appearance="outline">
+            <mat-label>Descripcion Sucursal</mat-label>
+            <!--este campo lo relacionamos con el campo del formulario y el campo descripcion-->
+            <input matInput formControlName="descripcion" autocomplete="off">
+          </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <!--listado moneda-->
+        <mat-form-field appearance="outline">
+          <mat-label>Moneda</mat-label>
+          <mat-select formControlName="idMoneda">
+              <mat-option *ngFor="let moneda of listaMonedas" [value]="moneda.id">{{moneda.descripcionMoneda}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <!--direccion sucursal-->
+          <mat-form-field appearance="outline">
+            <mat-label>Direccion Sucursal</mat-label>
+            <!--este campo lo relacionamos con el campo del formulario y el campo direccion-->
+            <input matInput formControlName="direccion" autocomplete="off">
+          </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+         <!--identificacion sucursal-->
+         <mat-form-field appearance="outline">
+          <mat-label>Identificacion Sucursal</mat-label>
+          <!--este campo lo relacionamos con el campo del formulario y el campo identificacion-->
+          <input matInput formControlName="identificacion" autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <!--fecha creacion sucursal-->
+        <mat-form-field appearance="outline">
+          <mat-label>Fecha Creacion Sucursal</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="fechaCreacion" placeholder="dd/MM/yyyy">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+     </mat-grid-tile>
+    </mat-grid-list>
+  </form>
+
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close color="warn">Volver</button>
+  <!--si el formulario es invalido deshabilita el boton de guardar-->
+  <button mat-raised-button color="primary" (click)="AgregarEditarSucursal()" [disabled]="formSucursal.invalid"> {{ botonAccion }}</button>
+</mat-dialog-actions>
+

@@ -20,5 +20,6 @@ insert into Moneda(moneda) values('USD');
 insert into Moneda(moneda) values('EUR');
 
 select * from Moneda;
+select * from Sucursales
 
 
