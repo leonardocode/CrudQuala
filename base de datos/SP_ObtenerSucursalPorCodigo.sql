@@ -1,4 +1,4 @@
-USE[DbAsistQuala]
+USE[DbQuala]
 GO
 -- ================================================
 -- Template generated from Template Explorer using:
@@ -20,7 +20,7 @@ GO
 -- Create date: 27/05/2024
 -- Description:	obtener sucursal por id
 -- =============================================
-CREATE PROCEDURE SP_ObtenerSucursalPorCodigo
+CREATE OR ALTER PROCEDURE SP_ObtenerSucursalPorCodigo
 	-- Add the parameters for the stored procedure here
 	@codigo int
 AS

@@ -1,6 +1,6 @@
-create database DbAsistQuala
+create database DbQuala
 
-use DbAsistQuala
+use DbQuala
 
 
 create table Moneda(

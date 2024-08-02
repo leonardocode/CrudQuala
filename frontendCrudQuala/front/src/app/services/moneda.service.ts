@@ -20,6 +20,7 @@ export class MonedaService
 
   ConsultarMonedas():Observable<Moneda[]>
   {
+    debugger;
     return this.http.get<Moneda[]>(`${this.apiUrl}ConsultarMonedas`);
   }
 }

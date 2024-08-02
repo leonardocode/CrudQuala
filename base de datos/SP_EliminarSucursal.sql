@@ -1,4 +1,4 @@
-USE[DbAsistQuala]
+USE[DbQuala]
 GO
 -- ================================================
 -- Template generated from Template Explorer using:
@@ -20,7 +20,7 @@ GO
 -- Create date: 27-05-2024
 -- Description:	eliminar sucursal
 -- =============================================
-CREATE PROCEDURE SP_EliminarSucursal
+CREATE OR ALTER PROCEDURE SP_EliminarSucursal
 	-- Add the parameters for the stored procedure here
 	@codigo int
 AS

@@ -1,4 +1,4 @@
-USE[DbAsistQuala]
+USE[DbQuala]
 GO
 -- ================================================
 -- Template generated from Template Explorer using:

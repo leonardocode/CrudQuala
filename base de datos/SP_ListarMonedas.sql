@@ -1,4 +1,4 @@
-USE[DbAsistQuala]
+USE[DbQuala]
 GO
 -- ================================================
 -- Template generated from Template Explorer using:
@@ -20,7 +20,7 @@ GO
 -- Create date: 27/05/2024
 -- Description:	CRUD MONEDA
 -- =============================================
-CREATE PROCEDURE SP_ListarMonedas
+CREATE OR ALTER PROCEDURE SP_ListarMonedas
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
